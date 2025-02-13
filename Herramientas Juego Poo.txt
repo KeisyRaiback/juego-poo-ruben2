@@ -1,0 +1,17 @@
+
+1.- Audio
+     https://pixabay.com/es/music/search/archive%20music/
+
+
+2.- RECUERDA
+
+ El index.html … es la primera web que se carga, por eso la llame asi, porque ahí es donde debemos ver la PAGINA DE DESCRIPCION DEL JUEGO y desde esta web hay un BOTON que nos lleva ya a  juego.html.
+
+ También tengo un archivo   style-index.css   que lo he llamado así, para EVITAR conflictos con el archivo  style.css   porque ese archivo esta vinculado con todo el contenido del   main.js   y podría modificarlo todo.
+
+ Ahora nos queda por hacer:
+
+ a) Darle un estilo a la web  de Descripción del Juego, mediante el archivo   style-index.css
+ b) Mejorar el FONDO DE PANTALLA de  juego.html mediante el  style.css
+ 
+ c) Subirlo todo a GITHUB
