@@ -3,24 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aventuras POO</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Aventuras POO - Descripción</title>
+    <link rel="stylesheet" href="style-index.css">
 </head>
 <body>
-    <h1>Cazador Boludo</h1>
+    <header>
+        <nav>
+            <h1>Aventuras POO</h1>
+            <p>Un emocionante juego basado en Programación Orientada a Objetos.</p>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="description">
+            <h2>Descripción del Juego</h2>
+            <p>Embárcate en una aventura increíble donde pondrás a prueba tus habilidades de programación y estrategia.</p>
+            <p>Explora distintos niveles, resuelve acertijos y mejora tus personajes utilizando POO.</p>
+            
+        </section>
 
-    <!-- Marcador de puntos fuera del juego -->
-    <div id="score-container">
-        Puntuación: <span id="points">0</span>
-    </div>
+        <section id="features">
+            <h2>Características</h2>
+            <ul>
+                <li>Gráficos envolventes y jugabilidad fluida</li>
+                <li>Sistema de niveles y mejoras</li>
+                <li>Sonido envolvente y efectos especiales</li>
+                <li>Diseñado para desarrolladores y entusiastas de la POO</li>                
+            </ul>
+            <p class="instrucciones">Instrucciones para jugar</p>
+            <p>Use las teclas de las flechas para los movientos hacia arriba, abajo, derecha e izquierda. La flecha hacia arriba se usa para saltar</p>
+        </section>
 
-    <div id="game-container"></div>
-
-    <audio autoplay loop controls>
-        <source src="./src/the-binaural-doll.mp3" type="audio/mp3">
-    </audio>
-    <a href="index.html" class="back-button">Volver al Inicio</a>
-
-    <script type="module" src="main.js"></script>
+        <section id="play">
+            <h2>¡Juega Ahora!</h2>
+            <p>Haz clic en el botón para acceder al juego.</p>
+            <a href="./juego.html" class="play-button">Ir al Juego</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Aventuras POO - Todos los derechos reservados</p>
+        </div>
 </body>
 </html>
