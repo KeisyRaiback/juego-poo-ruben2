@@ -2,9 +2,10 @@ class Game {
     constructor() {
         this.container = document.getElementById("game-container");
         this.personaje = null;
-        this.monedas = [];
+        this.estrellas = [];
         this.puntuacion = 0;
         this.pointsElement = document.getElementById("points");
+        this.sonidoColision = new Audio('./audio/sonido-mario.mp3'); // Asegúrate de tener este archivo de sonido
         this.crearEscenario();
         this.agregarEventos();
     }
@@ -12,14 +13,14 @@ class Game {
     crearEscenario() {
         this.personaje = new Personaje();
         this.container.appendChild(this.personaje.element);
-        this.crearMonedas();
+        this.crearEstrellas();
     }
 
-    crearMonedas() {
+    crearEstrellas() {
         for (let i = 0; i < 5; i++) {
-            const moneda = new Moneda();
-            this.monedas.push(moneda);
-            this.container.appendChild(moneda.element);
+            const estrella = new Estrella();
+            this.estrellas.push(estrella);
+            this.container.appendChild(estrella.element);
         }
     }
 
@@ -30,16 +31,17 @@ class Game {
 
     checkColisiones() {
         setInterval(() => {
-            this.monedas.forEach((moneda, index) => {
-                if (this.personaje.colisionaCon(moneda)) {
-                    this.container.removeChild(moneda.element);
-                    this.monedas.splice(index, 1);
+            this.estrellas.forEach((estrella, index) => {
+                if (this.personaje.colisionaCon(estrella)) {
+                    this.container.removeChild(estrella.element);
+                    this.estrellas.splice(index, 1);
+                    this.sonidoColision.play(); // Reproduce el sonido al colisionar
                     this.puntuacion++;
                     this.actualizarPuntuacion();
 
-                    // Si no quedan monedas, crear más
-                    if (this.monedas.length === 0) {
-                        this.crearMonedas();
+                    // Si no quedan estrellas, crear más
+                    if (this.estrellas.length === 0) {
+                        this.crearEstrellas();
                     }
                 }
             });
@@ -139,14 +141,14 @@ class Personaje {
     }
 }
 
-class Moneda {
+class Estrella {
     constructor() {
         this.x = Math.random() * 700 + 50;
-        this.y = Math.random() * 150 + 50; // Ajustado para que las burbujas aparezcan más arriba
+        this.y = Math.random() * 150 + 50;
         this.width = 30;
         this.height = 30;
         this.element = document.createElement("div");
-        this.element.classList.add("moneda");
+        this.element.classList.add("estrella");
         this.actualizarPosicion();
         this.animar();
     }
@@ -157,16 +159,16 @@ class Moneda {
     }
 
     animar() {
-        this.element.style.animation = "girar 1s linear infinite";
+        this.element.style.animation = "girarEstrella 1s linear infinite";
     }
 }
 
-// Agregar animación CSS para que las burbujas giren
+// Agregar animación CSS para que las estrellas giren
 const estilo = document.createElement("style");
 estilo.innerHTML = `
-    @keyframes girar {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    @keyframes girarEstrella {
+        from { transform: rotateY(0deg); }
+        to { transform: rotateY(360deg); }
     }
 `;
 document.head.appendChild(estilo);
