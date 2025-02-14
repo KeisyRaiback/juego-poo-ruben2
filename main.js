@@ -5,7 +5,7 @@ class Game {
         this.estrellas = [];
         this.puntuacion = 0;
         this.pointsElement = document.getElementById("points");
-        this.sonidoColision = new Audio('./audio/sonido-mario.mp3'); // Asegúrate de tener este archivo de sonido
+        this.sonidoColision = new Audio('./audio/mario-coin.mp3'); // Asegúrate de tener este archivo de sonido
         this.crearEscenario();
         this.agregarEventos();
     }
